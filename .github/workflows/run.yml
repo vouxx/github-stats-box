@@ -17,9 +17,10 @@ jobs:
             # - replace "npx github-stats-box@1" with "npm start"
             # N.B: Your action will not receive future updates if you do so
 
-            # - uses: actions/checkout@master
+            - uses: actions/checkout@master
             # - run: npm ci
-            - run: npx github-stats-box@1
+            - run: npm install
+            - run: node index.js
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }} # Do not edit, defined in secrets
 
