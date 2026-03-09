@@ -36,7 +36,6 @@ async function getStats() {
         totalPRs: 0,
         totalCommits: 0,
         totalIssues: 0,
-        totalStars: 0,
         contributedTo: 0,
     };
 
@@ -46,9 +45,6 @@ async function getStats() {
     stats.totalPRs = user.pullRequests.totalCount;
     stats.totalIssues = user.issues.totalCount;
     stats.contributedTo = user.repositoriesContributedTo.totalCount;
-    stats.totalStars = user.repositories.nodes.reduce((prev, curr) => {
-        return prev + curr.stargazers.totalCount;
-    }, 0);
 
     stats.totalCommits = user.contributionsCollection.totalCommitContributions;
     if (countAllCommits) {
